@@ -22,6 +22,9 @@ namespace Forms_App_1
         int lineCounter;
         int selectedTripID;
 
+        int fromIndex;
+        int toIndex;
+
         List<int> tripIDs = new List<int>();
 
         public SokForm()
@@ -31,7 +34,42 @@ namespace Forms_App_1
             lineCounter = 0;
 
             listBox1.Visible = false;
+
+            LoadCities();
         }
+
+        private void LoadCities()
+        {
+            string cities = "select * from city;";
+
+            ExecuteLoadCities(cities);
+        }
+        public void ExecuteLoadCities(string cities)
+        {
+            try
+            {
+                OpenCon();
+
+                command = new MySqlCommand(cities, connection);
+
+                MySqlDataReader reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    fromBox.Items.Add(reader.GetString("name"));
+                    toBox.Items.Add(reader.GetString("name"));
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            finally
+            {
+                CloseCon();
+            }
+        }
+
 
         public void OpenCon()
         {
@@ -111,7 +149,7 @@ namespace Forms_App_1
             string query = "select departuretime, arrivaltime, tripID from bussapp.bustrip b " +
                 "join city cOrigin on b.origin = cOrigin.cityID " +
                 "join city cDestination on b.destination = cDestination.cityID " +
-                "where cOrigin.name = '" + fromBox.Text + "' and cDestination.name = '" + toBox.Text + "';";
+                "where cOrigin.cityID = " + fromIndex + " and cDestination.cityID = " + toIndex + ";";
             ExecuteSearch(query);
         }
         private void Reset()
@@ -145,6 +183,15 @@ namespace Forms_App_1
             this.Hide();
             MainForm mainForm = new MainForm();
             mainForm.Show();
+        }
+
+        private void fromBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            fromIndex = fromBox.SelectedIndex + 1;
+        }
+        private void toBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            toIndex = toBox.SelectedIndex + 1;
         }        
     }
 }

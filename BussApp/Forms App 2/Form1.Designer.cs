@@ -32,8 +32,6 @@
             this.seatsBox = new System.Windows.Forms.TextBox();
             this.fromDateBox = new System.Windows.Forms.TextBox();
             this.toDateBox = new System.Windows.Forms.TextBox();
-            this.fromBox = new System.Windows.Forms.TextBox();
-            this.toBox = new System.Windows.Forms.TextBox();
             this.priceBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -43,11 +41,13 @@
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.test = new System.Windows.Forms.Label();
+            this.fromBox = new System.Windows.Forms.ComboBox();
+            this.toBox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(159, 273);
+            this.button1.Location = new System.Drawing.Point(162, 280);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(121, 32);
             this.button1.TabIndex = 0;
@@ -78,22 +78,6 @@
             this.toDateBox.Size = new System.Drawing.Size(168, 22);
             this.toDateBox.TabIndex = 3;
             this.toDateBox.Text = "2016-07-01 08:25:00";
-            // 
-            // fromBox
-            // 
-            this.fromBox.Location = new System.Drawing.Point(159, 83);
-            this.fromBox.Name = "fromBox";
-            this.fromBox.Size = new System.Drawing.Size(168, 22);
-            this.fromBox.TabIndex = 4;
-            this.fromBox.Text = "Malmö";
-            // 
-            // toBox
-            // 
-            this.toBox.Location = new System.Drawing.Point(159, 111);
-            this.toBox.Name = "toBox";
-            this.toBox.Size = new System.Drawing.Size(168, 22);
-            this.toBox.TabIndex = 5;
-            this.toBox.Text = "Köpenhamn";
             // 
             // priceBox
             // 
@@ -175,11 +159,31 @@
             this.test.Size = new System.Drawing.Size(0, 17);
             this.test.TabIndex = 15;
             // 
+            // fromBox
+            // 
+            this.fromBox.FormattingEnabled = true;
+            this.fromBox.Location = new System.Drawing.Point(159, 83);
+            this.fromBox.Name = "fromBox";
+            this.fromBox.Size = new System.Drawing.Size(168, 24);
+            this.fromBox.TabIndex = 16;
+            this.fromBox.SelectedIndexChanged += new System.EventHandler(this.fromBox_SelectedIndexChanged);
+            // 
+            // toBox
+            // 
+            this.toBox.FormattingEnabled = true;
+            this.toBox.Location = new System.Drawing.Point(159, 111);
+            this.toBox.Name = "toBox";
+            this.toBox.Size = new System.Drawing.Size(168, 24);
+            this.toBox.TabIndex = 17;
+            this.toBox.SelectedIndexChanged += new System.EventHandler(this.toBox_SelectedIndexChanged);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(448, 479);
+            this.Controls.Add(this.toBox);
+            this.Controls.Add(this.fromBox);
             this.Controls.Add(this.test);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
@@ -189,8 +193,6 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.priceBox);
-            this.Controls.Add(this.toBox);
-            this.Controls.Add(this.fromBox);
             this.Controls.Add(this.toDateBox);
             this.Controls.Add(this.fromDateBox);
             this.Controls.Add(this.seatsBox);
@@ -209,8 +211,6 @@
         private System.Windows.Forms.TextBox seatsBox;
         private System.Windows.Forms.TextBox fromDateBox;
         private System.Windows.Forms.TextBox toDateBox;
-        private System.Windows.Forms.TextBox fromBox;
-        private System.Windows.Forms.TextBox toBox;
         private System.Windows.Forms.TextBox priceBox;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
@@ -220,6 +220,8 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label test;
+        private System.Windows.Forms.ComboBox fromBox;
+        private System.Windows.Forms.ComboBox toBox;
     }
 }
 

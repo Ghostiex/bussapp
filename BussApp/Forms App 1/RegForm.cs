@@ -66,33 +66,28 @@ namespace Forms_App_1
             {
                 CloseCon();
             }
-        }
-        
+        }        
 
         private void button2_Click(object sender, EventArgs e)
         {
             string q = "insert into bussapp.customer (firstname, lastname, personID, adress, email, phonenumber) values('" + firstnameBox.Text + "','" + lastnameBox.Text + "','" + personnrBox.Text + "','" + addressBox.Text + "','" + emailBox.Text + "','" + telefonnrBox.Text + "')";
             ExecuteQuery(q);
         }
-
         private void button3_Click(object sender, EventArgs e)
         {
             this.Hide();
             MainForm mainForm = new MainForm();
             mainForm.Show();
         }
-  
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
 
         }
-
         private void label5_Click(object sender, EventArgs e)
         {
 
         }
-
         private void RegForm_Load_1(object sender, EventArgs e)
         {
 

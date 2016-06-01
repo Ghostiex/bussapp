@@ -30,9 +30,7 @@
         {
             this.components = new System.ComponentModel.Container();
             this.button1 = new System.Windows.Forms.Button();
-            this.toBox = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
-            this.fromBox = new System.Windows.Forms.TextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.info1 = new System.Windows.Forms.Label();
             this.infobutton1 = new System.Windows.Forms.Button();
@@ -41,6 +39,8 @@
             this.bussappDataSet1BindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.outputText = new System.Windows.Forms.Label();
+            this.fromBox = new System.Windows.Forms.ComboBox();
+            this.toBox = new System.Windows.Forms.ComboBox();
             ((System.ComponentModel.ISupportInitialize)(this.bussappDataSet1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bussappDataSet1BindingSource)).BeginInit();
             this.SuspendLayout();
@@ -50,19 +50,11 @@
             this.button1.Location = new System.Drawing.Point(136, 175);
             this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(277, 28);
+            this.button1.Size = new System.Drawing.Size(186, 28);
             this.button1.TabIndex = 3;
             this.button1.Text = "Sök";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
-            // 
-            // toBox
-            // 
-            this.toBox.Location = new System.Drawing.Point(136, 143);
-            this.toBox.Margin = new System.Windows.Forms.Padding(4);
-            this.toBox.Name = "toBox";
-            this.toBox.Size = new System.Drawing.Size(276, 22);
-            this.toBox.TabIndex = 2;
             // 
             // label1
             // 
@@ -73,14 +65,6 @@
             this.label1.Size = new System.Drawing.Size(79, 17);
             this.label1.TabIndex = 2;
             this.label1.Text = "Destination";
-            // 
-            // fromBox
-            // 
-            this.fromBox.Location = new System.Drawing.Point(136, 111);
-            this.fromBox.Margin = new System.Windows.Forms.Padding(4);
-            this.fromBox.Name = "fromBox";
-            this.fromBox.Size = new System.Drawing.Size(276, 22);
-            this.fromBox.TabIndex = 1;
             // 
             // label2
             // 
@@ -151,20 +135,38 @@
             this.outputText.Size = new System.Drawing.Size(0, 17);
             this.outputText.TabIndex = 11;
             // 
+            // fromBox
+            // 
+            this.fromBox.FormattingEnabled = true;
+            this.fromBox.Location = new System.Drawing.Point(136, 111);
+            this.fromBox.Name = "fromBox";
+            this.fromBox.Size = new System.Drawing.Size(186, 24);
+            this.fromBox.TabIndex = 12;
+            this.fromBox.SelectedIndexChanged += new System.EventHandler(this.fromBox_SelectedIndexChanged);
+            // 
+            // toBox
+            // 
+            this.toBox.FormattingEnabled = true;
+            this.toBox.Location = new System.Drawing.Point(136, 143);
+            this.toBox.Name = "toBox";
+            this.toBox.Size = new System.Drawing.Size(186, 24);
+            this.toBox.TabIndex = 13;
+            this.toBox.SelectedIndexChanged += new System.EventHandler(this.toBox_SelectedIndexChanged);
+            // 
             // SokForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(481, 456);
+            this.Controls.Add(this.toBox);
+            this.Controls.Add(this.fromBox);
             this.Controls.Add(this.outputText);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.tillbakaBtn);
             this.Controls.Add(this.infobutton1);
             this.Controls.Add(this.info1);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.fromBox);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.toBox);
             this.Controls.Add(this.button1);
             this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SokForm";
@@ -180,9 +182,7 @@
         #endregion
 
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox toBox;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.TextBox fromBox;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label info1;
         private System.Windows.Forms.Button infobutton1;
@@ -191,5 +191,7 @@
         private bussappDataSet1 bussappDataSet1;
         private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.Label outputText;
+        private System.Windows.Forms.ComboBox fromBox;
+        private System.Windows.Forms.ComboBox toBox;
     }
 }

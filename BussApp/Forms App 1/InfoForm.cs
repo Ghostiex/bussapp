@@ -59,6 +59,7 @@ namespace Forms_App_1
 
             ExecuteLoadInfo(query);
         }
+
         public void ExecuteLoadInfo(string query)
         {
             try
