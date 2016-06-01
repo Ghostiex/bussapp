@@ -73,7 +73,14 @@ namespace Forms_App_1
                     tripIDs.Add(tripID);
                 }
 
-                listBox1.Height = 20 * lineCounter;
+                if (lineCounter > 8)
+                {
+                    listBox1.Height = 160;
+                }
+                else
+                {
+                    listBox1.Height = 20 * lineCounter;
+                }
 
                 if (lineCounter == 0)
                 {

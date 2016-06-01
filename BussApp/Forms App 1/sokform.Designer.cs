@@ -114,7 +114,7 @@
             // 
             // tillbakaBtn
             // 
-            this.tillbakaBtn.Location = new System.Drawing.Point(342, 598);
+            this.tillbakaBtn.Location = new System.Drawing.Point(342, 409);
             this.tillbakaBtn.Margin = new System.Windows.Forms.Padding(4);
             this.tillbakaBtn.Name = "tillbakaBtn";
             this.tillbakaBtn.Size = new System.Drawing.Size(108, 25);
@@ -139,6 +139,7 @@
             this.listBox1.ItemHeight = 16;
             this.listBox1.Location = new System.Drawing.Point(47, 268);
             this.listBox1.Name = "listBox1";
+            this.listBox1.ScrollAlwaysVisible = true;
             this.listBox1.Size = new System.Drawing.Size(275, 52);
             this.listBox1.TabIndex = 10;
             // 
@@ -154,7 +155,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(481, 649);
+            this.ClientSize = new System.Drawing.Size(481, 456);
             this.Controls.Add(this.outputText);
             this.Controls.Add(this.listBox1);
             this.Controls.Add(this.tillbakaBtn);

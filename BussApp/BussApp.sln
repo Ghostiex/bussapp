@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 14
-VisualStudioVersion = 14.0.24720.0
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forms App 1", "Forms App 1\Forms App 1.csproj", "{F9AF5AFC-A641-44C9-B37C-6A9D6F1FDA0C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Forms App 2", "Forms App 2\Forms App 2.csproj", "{BEC422EE-90D7-43A3-B68A-E7A538080EE7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{F9AF5AFC-A641-44C9-B37C-6A9D6F1FDA0C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F9AF5AFC-A641-44C9-B37C-6A9D6F1FDA0C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F9AF5AFC-A641-44C9-B37C-6A9D6F1FDA0C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEC422EE-90D7-43A3-B68A-E7A538080EE7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEC422EE-90D7-43A3-B68A-E7A538080EE7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEC422EE-90D7-43A3-B68A-E7A538080EE7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEC422EE-90D7-43A3-B68A-E7A538080EE7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
