@@ -1,6 +1,6 @@
 ﻿namespace Forms_App_2
 {
-    partial class Form1
+    partial class BustripForm
     {
         /// <summary>
         /// Required designer variable.
@@ -43,6 +43,7 @@
             this.test = new System.Windows.Forms.Label();
             this.fromBox = new System.Windows.Forms.ComboBox();
             this.toBox = new System.Windows.Forms.ComboBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // button1
@@ -50,7 +51,7 @@
             this.button1.Location = new System.Drawing.Point(162, 280);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(121, 32);
-            this.button1.TabIndex = 0;
+            this.button1.TabIndex = 7;
             this.button1.Text = "Lägg till resa";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
@@ -60,7 +61,7 @@
             this.seatsBox.Location = new System.Drawing.Point(159, 195);
             this.seatsBox.Name = "seatsBox";
             this.seatsBox.Size = new System.Drawing.Size(168, 22);
-            this.seatsBox.TabIndex = 1;
+            this.seatsBox.TabIndex = 5;
             this.seatsBox.Text = "20";
             // 
             // fromDateBox
@@ -68,7 +69,7 @@
             this.fromDateBox.Location = new System.Drawing.Point(159, 139);
             this.fromDateBox.Name = "fromDateBox";
             this.fromDateBox.Size = new System.Drawing.Size(168, 22);
-            this.fromDateBox.TabIndex = 2;
+            this.fromDateBox.TabIndex = 3;
             this.fromDateBox.Text = "2016-07-01 08:25:00";
             // 
             // toDateBox
@@ -76,7 +77,7 @@
             this.toDateBox.Location = new System.Drawing.Point(159, 167);
             this.toDateBox.Name = "toDateBox";
             this.toDateBox.Size = new System.Drawing.Size(168, 22);
-            this.toDateBox.TabIndex = 3;
+            this.toDateBox.TabIndex = 4;
             this.toDateBox.Text = "2016-07-01 08:25:00";
             // 
             // priceBox
@@ -165,7 +166,7 @@
             this.fromBox.Location = new System.Drawing.Point(159, 83);
             this.fromBox.Name = "fromBox";
             this.fromBox.Size = new System.Drawing.Size(168, 24);
-            this.fromBox.TabIndex = 16;
+            this.fromBox.TabIndex = 1;
             this.fromBox.SelectedIndexChanged += new System.EventHandler(this.fromBox_SelectedIndexChanged);
             // 
             // toBox
@@ -174,14 +175,25 @@
             this.toBox.Location = new System.Drawing.Point(159, 111);
             this.toBox.Name = "toBox";
             this.toBox.Size = new System.Drawing.Size(168, 24);
-            this.toBox.TabIndex = 17;
+            this.toBox.TabIndex = 2;
             this.toBox.SelectedIndexChanged += new System.EventHandler(this.toBox_SelectedIndexChanged);
             // 
-            // Form1
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(325, 416);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(89, 29);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Tillbaka";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // BustripForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(448, 479);
+            this.Controls.Add(this.button2);
             this.Controls.Add(this.toBox);
             this.Controls.Add(this.fromBox);
             this.Controls.Add(this.test);
@@ -197,7 +209,7 @@
             this.Controls.Add(this.fromDateBox);
             this.Controls.Add(this.seatsBox);
             this.Controls.Add(this.button1);
-            this.Name = "Form1";
+            this.Name = "BustripForm";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
@@ -222,6 +234,7 @@
         private System.Windows.Forms.Label test;
         private System.Windows.Forms.ComboBox fromBox;
         private System.Windows.Forms.ComboBox toBox;
+        private System.Windows.Forms.Button button2;
     }
 }
 

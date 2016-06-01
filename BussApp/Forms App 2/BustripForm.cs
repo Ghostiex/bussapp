@@ -12,7 +12,7 @@ using MySql.Data.MySqlClient;
 
 namespace Forms_App_2
 {
-    public partial class Form1 : Form
+    public partial class BustripForm : Form
     {
         MySqlConnection connection = new MySqlConnection("datasource=85.24.245.191;port=3306;database=bussapp;username=bussapp;password=123456");
         MySqlCommand command;
@@ -23,7 +23,7 @@ namespace Forms_App_2
         int fromIndex;
         int toIndex;
 
-        public Form1()
+        public BustripForm()
         {
             InitializeComponent();
 
@@ -125,10 +125,6 @@ namespace Forms_App_2
         {
 
         }
-        private void button2_Click(object sender, EventArgs e)
-        {
-
-        }
 
         private void fromBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -137,6 +133,13 @@ namespace Forms_App_2
         private void toBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             toIndex = toBox.SelectedIndex + 1;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            this.Close();
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
         }
     }
 }
