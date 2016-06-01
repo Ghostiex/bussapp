@@ -52,7 +52,7 @@ namespace Forms_App_1
 
         private void LoadBusTrip()
         {
-            string query = "select c1.name name1, c2.name name2, b.departuretime, b.arrivaltime, b.availableseats, b.price, c2.country, c2.language, c2.currency from bustrip b " +
+            string query = "select c1.name name1, c2.name name2, b.departuretime, b.arrivaltime, b.availableseats, b.price, c2.country, c2.language, c2.currency, c2.timezone from bustrip b " +
                 "join city c1 on (b.origin = c1.cityID) " +
                 "join city c2 on (b.destination = c2.cityID)" +
                 "where b.tripID = " + tripID;
@@ -80,6 +80,7 @@ namespace Forms_App_1
                     countryLabel.Text = reader.GetString("country");
                     languageLabel.Text = reader.GetString("language");
                     currencyLabel.Text = reader.GetString("currency");
+                    tidszonLabel.Text = reader.GetString("timezone");
                 }
             }
             catch (Exception ex)

@@ -51,6 +51,8 @@
             this.languageLabel = new System.Windows.Forms.Label();
             this.currencyLabel = new System.Windows.Forms.Label();
             this.emailBox = new System.Windows.Forms.TextBox();
+            this.tidszonLabel = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -254,11 +256,30 @@
             this.emailBox.Size = new System.Drawing.Size(270, 22);
             this.emailBox.TabIndex = 22;
             // 
+            // tidszonLabel
+            // 
+            this.tidszonLabel.AutoSize = true;
+            this.tidszonLabel.Location = new System.Drawing.Point(170, 412);
+            this.tidszonLabel.Name = "tidszonLabel";
+            this.tidszonLabel.Size = new System.Drawing.Size(0, 17);
+            this.tidszonLabel.TabIndex = 24;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(102, 412);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(62, 17);
+            this.label5.TabIndex = 23;
+            this.label5.Text = "Tidszon:";
+            // 
             // InfoForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(483, 537);
+            this.Controls.Add(this.tidszonLabel);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.emailBox);
             this.Controls.Add(this.currencyLabel);
             this.Controls.Add(this.languageLabel);
@@ -315,5 +336,7 @@
         private System.Windows.Forms.Label languageLabel;
         private System.Windows.Forms.Label currencyLabel;
         private System.Windows.Forms.TextBox emailBox;
+        private System.Windows.Forms.Label tidszonLabel;
+        private System.Windows.Forms.Label label5;
     }
 }
