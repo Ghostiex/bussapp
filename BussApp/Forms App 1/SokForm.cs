@@ -124,7 +124,7 @@ namespace Forms_App_1
                 {
                     listBox1.Visible = false;
 
-                    outputText.Text = "We have no bustrip from " + fromBox.Text + " to " + toBox.Text + ".";
+                    outputText.Text = "Vi har inga bussar som går från " + fromBox.Text + " till " + toBox.Text + ".";
                 }
                 else
                 {
