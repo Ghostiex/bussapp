@@ -7,14 +7,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data.MySqlClient;
 
 namespace Forms_App_1
 {
     public partial class MainForm : Form
     {
-        RegForm regForm = new RegForm();
-        SokForm sokForm = new SokForm();
-
         public MainForm()
         {
             InitializeComponent();
@@ -23,13 +21,20 @@ namespace Forms_App_1
         private void button1_Click(object sender, EventArgs e)
         {
             this.Hide();
+            SokForm sokForm = new SokForm();
             sokForm.Show();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.Hide();
+            RegForm regForm = new RegForm();
             regForm.Show();
+        }
+
+        private void MainForm_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

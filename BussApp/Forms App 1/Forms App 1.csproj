@@ -53,6 +53,7 @@
   <ItemGroup>
     <Compile Include="bussappDataSet.cs">
       <DependentUpon>bussappDataSet.xsd</DependentUpon>
+      <SubType>Component</SubType>
     </Compile>
     <Compile Include="bussappDataSet.Designer.cs">
       <AutoGen>True</AutoGen>
@@ -63,6 +64,12 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>bussappDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="InfoForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="InfoForm.Designer.cs">
+      <DependentUpon>InfoForm.cs</DependentUpon>
     </Compile>
     <Compile Include="MainForm.cs">
       <SubType>Form</SubType>
@@ -90,6 +97,9 @@
     <Compile Include="SokForm.Designer.cs">
       <DependentUpon>SokForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="InfoForm.resx">
+      <DependentUpon>InfoForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>

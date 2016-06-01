@@ -13,9 +13,10 @@ namespace Forms_App_1
 {
     public partial class RegForm : Form
     {
-        MySqlConnection mcon = new MySqlConnection("datasource=localhost;port=3306;username=bussapp;password=123456");
-        MySqlCommand mcd;
+        MainForm mainForm = new MainForm();
 
+        MySqlConnection connection = new MySqlConnection("datasource=85.24.245.191;port=3306;username=bussapp;password=123456");
+        MySqlCommand command;
 
         public RegForm()
         {
@@ -29,16 +30,16 @@ namespace Forms_App_1
 
         public void OpenCon()
         {
-            if (mcon.State == ConnectionState.Closed)
+            if (connection.State == ConnectionState.Closed)
             {
-                mcon.Open();
+                connection.Open();
             }
         }
         public void CloseCon()
         {
-            if (mcon.State == ConnectionState.Open)
+            if (connection.State == ConnectionState.Open)
             {
-                mcon.Close();
+                connection.Close();
             }
         }
 
@@ -47,8 +48,8 @@ namespace Forms_App_1
             try
             {
                 OpenCon();
-                mcd = new MySqlCommand(q, mcon);
-                if (mcd.ExecuteNonQuery() == 1)
+                command = new MySqlCommand(q, connection);
+                if (command.ExecuteNonQuery() == 1)
                 {
                     MessageBox.Show("Welcome to Svenssons DeluxeBusTrips, " + firstnameBox.Text + "!");
                 }
@@ -66,8 +67,7 @@ namespace Forms_App_1
                 CloseCon();
             }
         }
-
- 
+        
 
         private void button2_Click(object sender, EventArgs e)
         {
@@ -75,6 +75,12 @@ namespace Forms_App_1
             ExecuteQuery(q);
         }
 
+        private void button3_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
+        }
   
 
         private void textBox2_TextChanged(object sender, EventArgs e)

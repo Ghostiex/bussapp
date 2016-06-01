@@ -7,54 +7,84 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using MySql.Data;
 using MySql.Data.MySqlClient;
 
 namespace Forms_App_1
 {
     public partial class SokForm : Form
     {
-        MySqlConnection mcon = new MySqlConnection("datasource=85.24.245.191;port=3306;username=bussapp;password=123456");
-        MySqlCommand mcd;
+        MySqlConnection connection = new MySqlConnection("datasource=85.24.245.191;port=3306;database=bussapp;username=bussapp;password=123456");
+        MySqlCommand command;
 
+        MySqlDataReader reader;
+
+        int lineCounter;
+        int selectedTripID;
+
+        List<int> tripIDs = new List<int>();
 
         public SokForm()
         {
             InitializeComponent();
+
+            lineCounter = 0;
+
+            listBox1.Visible = false;
         }
 
         public void OpenCon()
         {
-            if (mcon.State == ConnectionState.Closed)
+            if (connection.State == ConnectionState.Closed)
             {
-                mcon.Open();
+                connection.Open();
             }
         }
         public void CloseCon()
         {
-            if (mcon.State == ConnectionState.Open)
+            if (connection.State == ConnectionState.Open)
             {
-                mcon.Close();
+                connection.Close();
             }
         }
 
-        public void ExecuteQuery(string q)
+        public void ExecuteSearch(string query)
         {
             try
             {
                 OpenCon();
-                mcd = new MySqlCommand(q, mcon);
 
-                SearchResults(mcd);
+                command = new MySqlCommand(query, connection);
 
-                //if (mcd.ExecuteNonQuery() == 1)
-                //{
-                //    //MessageBox.Show("Query Executed");
-                //    SearchResults(mcd);
-                //}
-                //else
-                //{
-                //    MessageBox.Show("Query Not Executed");
-                //}
+                reader = command.ExecuteReader();
+
+                while (reader.Read())
+                {
+                    string departureTime = reader.GetString("departuretime");
+
+                    listBox1.Items.Add(departureTime);
+
+                    lineCounter++;
+
+                    int tripID;
+
+                    tripID = reader.GetInt32("tripID");
+
+                    tripIDs.Add(tripID);
+                }
+
+                listBox1.Height = 20 * lineCounter;
+
+                if (lineCounter == 0)
+                {
+                    listBox1.Visible = false;
+
+                    outputText.Text = "We have no bustrip from " + fromBox.Text + " to " + toBox.Text + ".";
+                }
+                else
+                {
+                    listBox1.Visible = true;
+                }
             }
             catch (Exception ex)
             {
@@ -69,38 +99,45 @@ namespace Forms_App_1
         // Sök resa
         private void button1_Click(object sender, EventArgs e)
         {
-            string q = "select departuretime, arrivaltime from bussapp.bustrip b " +
+            Reset();
+
+            string query = "select departuretime, arrivaltime, tripID from bussapp.bustrip b " +
                 "join city cOrigin on b.origin = cOrigin.cityID " +
                 "join city cDestination on b.destination = cDestination.cityID " +
-                "where cOrigin.name = " + fromBox.Text + " and cDestination = " + toBox.Text + ";";
-            ExecuteQuery(q);
+                "where cOrigin.name = '" + fromBox.Text + "' and cDestination.name = '" + toBox.Text + "';";
+            ExecuteSearch(query);
         }
-
-        private void Translator()
+        private void Reset()
         {
+            listBox1.Items.Clear();
 
+            lineCounter = 0;
+
+            outputText.Text = "";
         }
-
-        private void SearchResults(MySqlCommand mcd)
-        {
-            string output = mcd.CommandText;
-
-            MessageBox.Show(output);
-        }
-
 
         private void infobutton1_Click(object sender, EventArgs e)
         {
+            SelectedTrip();
 
+            InfoForm infoForm = new InfoForm(selectedTripID);
+            infoForm.Show();
         }
-
-
-
-
+        private void SelectedTrip()
+        {
+            selectedTripID = tripIDs[listBox1.SelectedIndex];
+        }
 
         private void SokForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void tillbakaBtn_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            MainForm mainForm = new MainForm();
+            mainForm.Show();
         }        
     }
 }
